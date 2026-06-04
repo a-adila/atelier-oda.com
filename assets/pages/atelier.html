@@ -11,8 +11,18 @@
     />
     <link rel="stylesheet" href="/assets/css/style.min.css" />
     <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#header-content").load("header.html");
+      });
+    </script>
   </head>
   <body>
+    <div id="header-content"></div>
+    <section class="container-fluid row">
+      <h1 class="mb-5">Atelier</h1>
+      <section class="container-fluid row">
     <section class="container-fluid">
       <h1 class="mb-5">l'atelier</h1>
       <section class="container-fluid row mb-5">
