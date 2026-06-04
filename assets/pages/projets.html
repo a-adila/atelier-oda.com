@@ -12,8 +12,15 @@
     />
     <link rel="stylesheet" href="../css/style.min.css" />
     <link rel="stylesheet" href="../css/projects.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#header-content").load("header.html");
+      });
+    </script>
   </head>
   <body>
+    <div id="header-content"></div>
     <main>
       <section class="projects">
         <h1>projets</h1>
