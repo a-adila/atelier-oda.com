@@ -4,13 +4,47 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Projets | atelier oda - olivier duffé</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
   </head>
   <body>
     <main>
       <section class="projects">
         <h1>projets</h1>
-        <div class="projects__wrapper"></div>
+        <!-- PROJECTS GRID (START) -->
+        <div class="projects-grid container-fluid">
+          <!-- 1st row -->
+          <div class="row h-500">
+            <div class="col-md-4 w-400">
+              <div class="project__card">
+                <div class="project__picture">
+                  <img
+                    src="../img/projects-images/VIL/villabe-vue-exterieure.jpg"
+                    alt=""
+                    class="img-fluid"
+                  />
+                </div>
+                <p class="project__title">
+                  Conservatoire de musique Yves Henry
+                </p>
+              </div>
+            </div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4"></div>
+          </div>
+        </div>
+        <!-- PROJECTS GRID (END) -->
       </section>
     </main>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
