@@ -1,9 +1,4 @@
-@include url("atelier.scss");
-
-* {
-  margin: 0;
-  padding: 0;
-}
+@import url(/assets/css/header.min.css);
 
 @font-face {
   font-family: "DM-sans";
@@ -17,7 +12,7 @@ body {
 }
 h1 {
   font-size: 64px;
-  text-transform: uppercase;
+  text-transform: lowercase;
 }
 
 h2 {
@@ -27,8 +22,4 @@ h2 {
 h3 {
   font-size: 36px;
   text-transform: uppercase;
-}
-
-.img_overflow {
-  overflow: hidden;
 }
