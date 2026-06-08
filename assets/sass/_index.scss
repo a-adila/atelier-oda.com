@@ -18,6 +18,10 @@
 
 .projects-highlights {
   &__carousel {
+    &-project__navigation {
+      display: flex;
+      flex-direction: column;
+    }
     &__cards-wrapper {
       display: flex;
       flex-flow: row no-wrap;
