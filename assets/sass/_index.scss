@@ -44,6 +44,10 @@
       flex-flow: column nowrap;
       align-self: flex-end;
       gap: 20px;
+      & .is-disabled {
+        color: #89817c;
+        cursor: default;
+      }
     }
     &__card {
       height: 100%;
