@@ -21,35 +21,53 @@
     display: flex;
     flex-flow: column nowrap;
     align-items: flex-end;
-    gap: 30px;
+    gap: 70px;
     padding-bottom: 70px;
   }
   &__carousel {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row nowrap;
     justify-content: space-between;
-    align-items: center;
-    height: 400px;
+    align-items: flex-end;
+    gap: 200px;
     width: 100%;
     &__cards-wrapper {
+      width: 100%;
       display: flex;
-      flex-flow: row wrap;
+      flex-flow: row nowrap;
+      align-items: center;
       gap: 60px;
-      height: 430px;
+      height: 530px;
     }
     &-project__navigation {
       display: flex;
       flex-flow: column nowrap;
       align-self: flex-end;
       gap: 20px;
+      & .is-disabled {
+        color: #89817c;
+        cursor: default;
+      }
     }
     &__card {
       height: 100%;
-      width: 320px;
+      &.is-active {
+        flex-grow: 3;
+        height: 100%;
+        flex-basis: 440px;
+      }
+      &.is-inactive {
+        flex-grow: 1;
+        height: 400px;
+        flex-basis: 320px;
+      }
       &__picture {
         overflow: hidden;
+        height: 100%;
       }
       & img {
+        width: 100%;
+        height: 100%;
         object-fit: cover;
       }
     }
