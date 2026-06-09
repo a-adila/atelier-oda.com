@@ -56,6 +56,12 @@
         flex-grow: 3;
         height: 100%;
         flex-basis: 440px;
+        .picture-hover {
+          pointer-events: auto;
+          &:hover {
+            opacity: 1;
+          }
+        }
       }
       &.is-inactive {
         flex-grow: 1;
@@ -72,8 +78,16 @@
         height: 100%;
         object-fit: cover;
       }
+      &__title {
+        margin-top: 18px;
+      }
     }
   }
+}
+
+.picture-hover {
+  opacity: 0;
+  pointer-events: none;
 }
 
 /****************************************/
