@@ -2,9 +2,7 @@
 const cards = document.querySelectorAll(".projects-highlights__carousel__card");
 const arrowScrollToRight = document.querySelector(".navigation-scrollToRight");
 const arrowScrollToLeft = document.querySelector(".navigation-scrollToLeft");
-
-// To keep track of the active card - 0 is the first card
-let activeIndex = 0;
+let activeIndex = 0; // To keep track of the active card - 0 is the first card
 
 // Function to add .is-active .is-inactive and put indexes on cards
 function setActiveCard(activeIndex) {
@@ -53,3 +51,47 @@ function updateArrows(activeIndex) {
 }
 
 updateArrows(activeIndex);
+
+cards.forEach((card, index) => {
+  card.addEventListener("click", function () {
+    activeIndex = index;
+    setActiveCard(index);
+    updateArrows(index);
+  });
+});
+
+fetch("../fiche-projets.json")
+  .then((response) => response.json())
+  .then((data) => {
+    // Create a table to store random indexes
+    const randomIndexes = [];
+
+    // Get 3 random indexes
+    while (randomIndexes.length < 3) {
+      const index = Math.floor(Math.random() * data.length);
+      if (!randomIndexes.includes(index)) {
+        randomIndexes.push(index);
+      }
+    }
+    // Create an array to get indexes of projects
+    const randomProjects = randomIndexes.map((index) => data[index]);
+    console.log(randomIndexes);
+
+    randomProjects.forEach((project, index) => {
+      const imageElement = cards[index].querySelector(
+        ".projects-highlights__carousel__card__picture-item",
+      );
+      const titleElement = cards[index].querySelector(
+        ".projects-highlights__carousel__card__title",
+      );
+      const linkElement = cards[index].querySelector(
+        ".projects-highlights__carousel-project-link",
+      );
+
+      imageElement.src = project.img_1;
+      titleElement.textContent = project.nom;
+      linkElement.href = `/assets/pages/fiche-projets.html?id=${project.id}`;
+
+      console.log(project);
+    });
+  });

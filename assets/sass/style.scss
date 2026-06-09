@@ -88,9 +88,41 @@ h4 {
   text-transform: uppercase;
   font-weight: 700;
   font-size: 1rem;
+  display: block;
+  text-align: right;
 }
 
 .backlink-to-full-page:hover {
   text-decoration: underline;
   text-underline-offset: 8px;
+}
+
+/***********************/
+/**** PICTURE HOVER ****/
+/***********************/
+
+.picture-hover {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.403);
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  & .more-icon {
+    height: 50px;
+    width: 50px;
+  }
+  &.active {
+    opacity: 1;
+  }
+  /************************************/
+  /*********** Hover effect ***********/
+  /************************************/
+  &:hover {
+    opacity: 1;
+  }
 }
