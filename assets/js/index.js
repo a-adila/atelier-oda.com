@@ -1,3 +1,7 @@
+////////////////////////////////
+// PROJECT HIGHLIGHT CAROUSEL //
+////////////////////////////////
+
 // Get all elements on variables
 const cards = document.querySelectorAll(".projects-highlights__carousel__card");
 const arrowScrollToRight = document.querySelector(".navigation-scrollToRight");
@@ -59,6 +63,10 @@ cards.forEach((card, index) => {
     updateArrows(index);
   });
 });
+
+//////////////////////////////////////////////////////////
+// GENERATE RANDOM CARDS ON PROJECT HIGHLIGHT CAROUSEL ///
+//////////////////////////////////////////////////////////
 
 fetch("../fiche-projets.json")
   .then((response) => response.json())
