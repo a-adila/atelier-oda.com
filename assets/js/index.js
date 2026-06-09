@@ -1,3 +1,141 @@
+///////////////////
+// HERO CAROUSEL //
+///////////////////
+
+fetch("../fiche-projets.json")
+  .then((response) => response.json())
+  .then((data) => {
+    const featuredProjects = data.filter(
+      (project) => project.featured === true,
+    );
+
+    const slides = featuredProjects.map((project) => ({
+      src: project.img_1,
+      nom: project.nom,
+      localisation: project.localisation,
+    }));
+    const hero = document.querySelector(".hero");
+    const dotsNav = document.getElementById("dots");
+    const projectName = document.querySelector(".project__title");
+    const projectLocation = document.querySelector(".project__location");
+
+    const DURATION = 4;
+    const FADE_TIME = 1.5;
+    let current = 0;
+    let timeline = null;
+
+    const slideElements = slides.map((data, i) => {
+      const div = document.createElement("div");
+      div.className = "slide";
+      div.dataset.index = i;
+
+      const img = document.createElement("img");
+      img.className = "slide__img";
+      img.src = data.src;
+      img.alt = data.nom;
+
+      div.appendChild(img);
+      hero.insertBefore(div, dotsNav);
+
+      //dot
+      const dot = document.createElement("button");
+      dot.className = "hero__dot";
+      dot.setAttribute("aria-label", `Slide ${i + 1}`);
+      dot.addEventListener("click", () => goTo(i));
+      dotsNav.appendChild(dot);
+
+      return div;
+    });
+    const dotElements = dotsNav.querySelectorAll(".hero__dot");
+
+    // Update project's name and location
+    function updateProjectInfo(data) {
+      projectName.textContent = data.nom;
+      projectLocation.textContent = data.localisation;
+    }
+
+    // Dots
+
+    function setDot(idx) {
+      dotElements.forEach((dot, i) =>
+        dot.classList.toggle("is-active", i === idx),
+      );
+    }
+    function goTo(next) {
+      if (current === next) return;
+
+      // Kill the current autoplay
+      if (timeline) timeline.kill();
+
+      const from = slideElements[current];
+      const to = slideElements[next];
+
+      to.classList.add("is-active");
+      setDot(next);
+
+      const tl = gsap.timeline({
+        onComplete: () => {
+          from.classList.remove("is-active");
+          current = next;
+          updateProjectInfo(slides[current]);
+          startAutoplay();
+        },
+      });
+      tl.to(from, { opacity: 0, duration: FADE_TIME, ease: "power1.inOut" }).to(
+        to,
+        { opacity: 1, duration: FADE_TIME, ease: "power1.inOut" },
+        0,
+      );
+
+      timeline = tl;
+    }
+
+    // Autoplay
+
+    function startAutoplay() {
+      const next = (current + 1) % slides.length;
+
+      // on rend la slide courante visible si besoin
+      gsap.set(slideElements[current], { opacity: 1 });
+      slideElements[current].classList.add("is-active");
+      setDot(current);
+
+      // Display project's informations
+      updateProjectInfo(slides[current]);
+
+      // attente puis fondu vers la suivante
+      timeline = gsap.delayedCall(DURATION, () => {
+        const from = slideElements[current];
+        const to = slideElements[next];
+
+        to.classList.add("is-active");
+
+        const tl = gsap.timeline({
+          onComplete: () => {
+            from.classList.remove("is-active");
+            gsap.set(from, { opacity: 0 });
+            current = next;
+            updateProjectInfo(slides[current]);
+            startAutoplay();
+          },
+        });
+
+        tl.to(from, {
+          opacity: 0,
+          duration: FADE_TIME,
+          ease: "power1.inOut",
+        }).to(to, { opacity: 1, duration: FADE_TIME, ease: "power1.inOut" }, 0);
+
+        timeline = tl;
+      });
+    }
+
+    gsap.set(slideElements, { opacity: 0 });
+    gsap.set(slideElements[0], { opacity: 1 });
+
+    startAutoplay();
+  });
+
 ////////////////////////////////
 // PROJECT HIGHLIGHT CAROUSEL //
 ////////////////////////////////
