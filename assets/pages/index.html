@@ -30,6 +30,9 @@
         $("#footer-content").load("footer.html", function () {});
       });
     </script>
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   </head>
   <body>
     <div id="header-content"></div>
@@ -42,7 +45,7 @@
         <!---------------------->
         <!-- Carousel (START) -->
         <!---------------------->
-
+        <nav class="hero__dots" id="dots"></nav>
         <!-------------------->
         <!-- Carousel (END) -->
         <!-------------------->
@@ -51,8 +54,8 @@
         <!-- Project title (START) -->
         <!--------------------------->
         <div class="hero__project-info-container">
-          <p class="project__title">Conservatoire de musique Yves Henry</p>
-          <p class="project__location">Villabé (91)</p>
+          <p class="project__title"></p>
+          <p class="project__location"></p>
         </div>
         <!--------------------------->
         <!-- Project title (END) -->
