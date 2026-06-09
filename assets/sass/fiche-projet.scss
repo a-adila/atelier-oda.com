@@ -14,6 +14,7 @@
 .detail_projet {
   font-size: 36px;
   text-transform: uppercase;
+  margin: 20px 0 70px 0;
 
   @media (max-width: 480px) {
     font-size: 24px;
@@ -49,6 +50,13 @@
   }
 }
 
+.space {
+  height: 70px;
+}
+
+.backlink-to-full-page {
+  text-align: right;
+}
 /* 
 =====================================
 ---------------IMAGES----------------
