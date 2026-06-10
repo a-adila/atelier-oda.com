@@ -132,7 +132,13 @@ h4 {
   }
 }
 
+/************************************/
+/*********** Page Weight ***********/
+/************************************/
+
 .page-weight-info {
+  display: flex;
+  flex-direction: column;
   font-size: 48px;
   color: #3b3029;
   text-align: center;
