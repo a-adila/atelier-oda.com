@@ -247,7 +247,6 @@ fetch("../fiche-projets.json")
     }
     // Create an array to get indexes of projects
     const randomProjects = randomIndexes.map((index) => data[index]);
-    console.log(randomIndexes);
 
     randomProjects.forEach((project, index) => {
       const imageElement = cards[index].querySelector(
@@ -261,9 +260,7 @@ fetch("../fiche-projets.json")
       );
 
       imageElement.src = project.img_1;
-      titleElement.textContent = project.nom;
+      titleElement.textContent = project.programme;
       linkElement.href = `/assets/pages/fiche-projets.html?id=${project.id}`;
-
-      console.log(project);
     });
   });
