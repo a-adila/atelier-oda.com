@@ -38,23 +38,22 @@
 .hero__dots {
   position: absolute;
   bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
+  right: 2rem; /** décalé à droite pour laisser place à la flèche **/
   display: flex;
-  gap: 10px;
+  gap: 20px;
   z-index: 10;
 }
 
 .hero__dot {
-  width: 8px;
-  height: 8px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.35);
-  border: none;
+  background: #fefbf8;
+  border: 1px solid #fefbf8;
   cursor: pointer;
 
   &.is-active {
-    background: #fff;
+    background: transparent;
   }
 }
 
@@ -77,20 +76,11 @@
 
 .hero__scroll-down {
   position: absolute;
-  bottom: 2rem;
+  bottom: -60px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
   cursor: pointer;
-}
-
-.hero__dots {
-  position: absolute;
-  bottom: 2rem;
-  right: 2rem; /** décalé à droite pour laisser place à la flèche **/
-  display: flex;
-  gap: 10px;
-  z-index: 10;
 }
 
 /****************************************/
