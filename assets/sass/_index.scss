@@ -11,11 +11,15 @@
 /**************************/
 /****** HERO SECTION ******/
 /**************************/
+.hero-wrapper {
+  height: calc(100vh - 122.7px);
+  display: flex;
+  flex-direction: column;
+}
 .hero {
-  height: calc(100vh - 122.7px - 43px);
+  flex: 1;
   overflow: hidden;
   position: relative;
-  width: 100%;
 }
 
 .slide {
@@ -55,7 +59,7 @@
 }
 
 .hero__project-info-container {
-  padding-top: 10px;
+  flex-shrink: 0;
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-end;
@@ -63,6 +67,7 @@
   gap: 40px;
   text-transform: uppercase;
   color: #3b3029;
+  padding-top: 10px;
 }
 
 .project__title,
@@ -70,9 +75,27 @@
   transition: opacity 0.5s ease;
 }
 
-/*****************************/
-/****** SECTION SECTION ******/
-/*****************************/
+.hero__scroll-down {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  cursor: pointer;
+}
+
+.hero__dots {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem; /** décalé à droite pour laisser place à la flèche **/
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+/****************************************/
+/****** PROJECTS HIGHLIGHTS SECTION ******/
+/****************************************/
 
 .projects-highlights {
   padding-top: 200px;
@@ -101,6 +124,9 @@
       align-items: center;
       gap: 60px;
       height: 530px;
+      @media (max-width: 768px) {
+        flex-flow: column nowrap;
+      }
     }
     &-project__navigation {
       display: flex;
