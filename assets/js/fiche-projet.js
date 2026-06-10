@@ -95,7 +95,6 @@ if (!projet) {
 
     const info = document.createElement("div");
     info.classList.add("detail_info");
-    info.innerText = value ?? "";
 
     //LIEN CLIQUABLE SI URL
 
