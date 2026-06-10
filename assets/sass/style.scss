@@ -17,6 +17,10 @@
   src: url(../font/DMSans-VariableFont_opsz\,wght.ttf);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "DM-sans";
   font-size: 18px;
